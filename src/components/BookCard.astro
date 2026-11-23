@@ -1,0 +1,56 @@
+---
+import type { CollectionEntry } from "astro:content";
+
+const{bookk}=Astro.props
+// 把bookk定义成一个props ，
+interface Props
+{
+	bookk:CollectionEntry<'Books'>
+}
+//    bookk: 
+ //    {
+    // title: string
+    // author:string
+
+ //    } 
+
+
+
+
+---
+
+<div class="book-card">
+				<p class="book-title">{bookk.data.title},{bookk.data.rating}/10</p>
+				<p class="book-author">{bookk.data.author}</p>
+				<p class="book-summary">{bookk.data.summary}</p>
+				<a href={`/books/${bookk.id}`}>Read reviews</a>
+              {/* 返回值可以很多，因为这一步是在画图，不是在计算
+			      参数和返回值的关系，没有运算，那就直接显示 */}
+			</div>
+
+<style>
+	h2{
+		padding-right: 10px;
+		border-right: 8px solid #ebe5fe;
+		border-bottom: 8px solid #f9f6fc;
+		margin-bottom: 40px;
+		text-align: right;
+	}
+	.book-card{
+		background-color: #f4f0f7;
+		padding: 16px 20px;
+		margin:20px auto;
+		box-shadow: 8px 8px 0 #bdbbbe;
+	}
+	.book-title{
+		font-size: 1.4em;
+		font-weight: bold;
+		margin:0;
+	}
+	.book-author{
+		margin: 0;
+	}
+	.book-summary{
+		font-size: 1em;
+	}
+</style>

@@ -1,0 +1,97 @@
+---
+---
+
+<html lang="en">
+	<head>
+			<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="icon" href="/favicon.ico" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<title>BookBites</title>	
+	</head>
+	<body>
+		<header>
+			<h3>Book Bites</h3>
+			<nav>
+				<ul>
+					<li><a href="/">Home</a></li>       <!-- /*为列表 a 标签跳转链接，1绝对链接2相对链接*/ -->
+					<li><a href="/about">About</a></li> <!-- /*target self和blank（原来保存并打开新标签）*/ -->
+					<li><a href="/books">Books</a></li>
+					<li><a href="/products">Products</a></li> <!-- /*a标签还支持mailto加邮箱地址，tel直接打电话*/ -->
+				</ul>                                  <!--  /*h2标签加top 页面顶部*/ -->
+			</nav>
+		</header><!-- /*此处是布局到页眉*/ -->
+
+		<main>   <!-- /*此处开始主要内容*/ -->
+            <slot />
+        </main>
+	</body>
+</html>
+
+
+<style>
+ body{
+	margin: 0;
+ }
+ header{
+	background-color: #f9f6fc;
+	padding:10px 20px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	
+	h1{
+		margin: 0;
+	}
+	ul{
+		display: flex;
+		list-style-type: none;
+		gap: 16px;
+	}
+	a{
+		text-decoration: none;
+		border-bottom: 1px dashed;
+	}
+ }
+</style>
+
+<style is:global>
+	*{
+		font-family: "Poppins",sans-serif;
+		color: #333;
+	}
+    .content{
+		width: 100%;
+		max-width: 1200px;
+		margin:60px auto;
+		padding: 0 20px;
+		box-sizing: border-box;
+
+		h2 {
+			font-size: 1.8em;
+		}
+		p {
+			font-size: 1.2em;
+		}
+	}
+	.likes{
+		border-top: 1px dashed rgb(135, 135, 215);
+		background-color: #f9f6fc;
+		margin-top:40px;
+		display:flex;
+		padding:10px;
+		gap:20px;
+		align-items:center;
+
+		button{
+			background-color: #c194ef;
+			border:0;
+			color:#fff;
+			padding:6px 10px;
+			font-size: 1em;
+			border-radius: 4px;
+			coursor:pointer;
+		}
+	}
+</style>

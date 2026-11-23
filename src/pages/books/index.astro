@@ -1,0 +1,31 @@
+---
+import { getCollection } from "astro:content";
+import BookCard from "../../components/BookCard.astro";
+import  BaseLayout  from "../../layouts/BaseLayout.astro";
+interface Book{
+	title: string
+	author:string
+}
+
+// const books:Book[] =[
+	                //  {title:'The Name of The wind',author:'Patrick Rothfuss'},
+	                //  {title:'The Final Empire',author:'Brandon Sanderson'},
+	                //  {title:'The Blade Itself',author:'Joe Abercrombie'},
+	                //  {title:'The Will of the Many',author:'James Islington'},
+	
+	// ]
+const books = await getCollection('Books')
+---
+<BaseLayout>
+<div class="content">
+    <h2>Books</h2>
+	<!-- Calls a defined callback function on each element of an array, and returns an array that contains the results. -->
+	{books.map(bookk => <BookCard bookk={bookk}/>)}
+	{
+		books.length < 1 &&(<p> Here is No books</p>)
+	}
+</div>
+
+
+	
+</BaseLayout>
