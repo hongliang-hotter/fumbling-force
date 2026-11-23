@@ -5,6 +5,8 @@ import BaseLayout  from "../../layouts/BaseLayout.astro";
 import { render } from "astro:content";
 import Likes from "../../components/Likes";
 
+export const prerender = true;
+
 export async function getStaticPaths(){
     const books = await getCollection('Books')
     return books.map((book)=>{
